@@ -1,6 +1,6 @@
 # lita-isolita
 
-TODO: Add a description of the plugin.
+Make Lita do more work
 
 ## Installation
 
@@ -10,10 +10,10 @@ Add lita-isolita to your Lita instance's Gemfile:
 gem "lita-isolita"
 ```
 
-## Configuration
-
-TODO: Describe any configuration attributes the plugin exposes.
-
 ## Usage
 
-TODO: Describe the plugin's features and how to use them.
+    Chris: Lita, do some fucking work
+    Lita: Mind your manners Chris.. 
+
+    Chris: Lita, wake up
+    Lita: system "heroku restart" 

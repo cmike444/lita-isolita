@@ -3,9 +3,9 @@ Gem::Specification.new do |spec|
   spec.version       = "0.1.0"
   spec.authors       = ["Chris Mikelson"]
   spec.email         = ["chrismikelson@gmail.com"]
-  spec.description   = "Custom Lita commands for Isoque"
-  spec.summary       = "TODO: Add a summary"
-  spec.homepage      = "TODO: Add a homepage"
+  spec.description   = "Make Lita do more work"
+  spec.summary       = "Make Lita do more work"
+  spec.homepage      = "chrismikelson.com"
   spec.license       = "TODO: Add a license"
   spec.metadata      = { "lita_plugin_type" => "handler" }
 
