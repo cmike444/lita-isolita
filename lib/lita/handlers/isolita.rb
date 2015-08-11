@@ -12,7 +12,7 @@ module Lita
       end
 
       def wake_up(response)
-        system "heroku ps"
+        system("heroku ps")
       end
     end
 
