@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-isolita"
-  spec.version       = "0.1.1"
+  spec.version       = "0.1.2"
   spec.authors       = ["Chris Mikelson"]
   spec.email         = ["chrismikelson@gmail.com"]
   spec.description   = "Make Lita do more work"
