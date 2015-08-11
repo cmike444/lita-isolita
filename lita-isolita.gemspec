@@ -1,11 +1,11 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-isolita"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Chris Mikelson"]
   spec.email         = ["chrismikelson@gmail.com"]
   spec.description   = "Make Lita do more work"
-  spec.summary       = "Make Lita do more work"
-  spec.homepage      = "http://www.chrismikelson.com"
+  spec.summary       = "Custom commands to make Lita pick up the Slack, literally."
+  spec.homepage      = "https://github.com/cmike444/lita-isolita"
   spec.license       = "TODO: Add a license"
   spec.metadata      = { "lita_plugin_type" => "handler" }
 
