@@ -2,14 +2,6 @@ module Lita
   module Handlers
     class Isolita < Handler
 
-      ## Get the username for who's talking to Lita.
-      def get_reply_to_name(response)
-        reply_to_name = response.user.metadata['mention_name'].nil? ?
-                         "#{response.user.name}" :
-                        "#{response.user.metadata['mention_name']}"
-      end
-
-
       ## Mind your manners will just focus on "Fuck" 
       ## for now until others become a problem.
       route(/fuck/i, :mind_your_manners, help: {
@@ -17,16 +9,18 @@ module Lita
         })
 
       def mind_your_manners(response)
-        get_reply_to_name(response)
+        username = response.user.metadata['name'].nil? ?
+                         "#{response.user.name}" :
+                        "#{response.user.metadata['name']}"
 
         mind_manners = [
-          "Mind your manners #{reply_to_name}..",
-          "You better wash out that dirty mouth #{reply_to_name}!",
-          "That is just unprofessional, #{reply_to_name}.",
-          "Your mother wouldn't like to hear you say that, #{reply_to_name}.",
-          "Quite the potty mouth on you, #{reply_to_name}..",
-          "Good manners are made up of petty sacrifices, #{reply_to_name}.",
-          "Does saying that make you more mature, #{reply_to_name}?",
+          "Mind your manners #{username}..",
+          "You better wash out that dirty mouth #{username}!",
+          "That is just unprofessional, #{username}.",
+          "Your mother wouldn't like to hear you say that, #{username}.",
+          "Quite the potty mouth on you, #{username}..",
+          "Good manners are made up of petty sacrifices, #{username}.",
+          "Does saying that make you more mature, #{username}?",
           "Rude."
         ]
         response.reply mind_manners.sample
@@ -34,12 +28,12 @@ module Lita
 
 
 
-      route(/^(show request).*/i, :print_response, help: {
-        "lita: show request" => "Prints out user's request"
+      route(/^echo\s+(.+)/, :echo, command: true, help: {
+        "lita: echo TEXT" => "Echoes back TEXT"
         })
 
-      def print_response(response)
-        response.reply_privately "#{response.message.inspect}\n#{response.user.inspect}"
+      def echo(response)
+        response.reply "#{response.matches}"
       end
 
     end
