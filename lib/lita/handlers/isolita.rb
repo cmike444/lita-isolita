@@ -33,7 +33,7 @@ module Lita
         })
 
       def echo(response)
-        response.reply response.matches[0]
+        response.reply response.matches[0][0]
       end
 
     end
