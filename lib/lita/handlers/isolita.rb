@@ -35,11 +35,11 @@ module Lita
 
 
       route(/^(show response json).*/i, :print_reply, help: {
-        "show response json" => "Prints out Lita's response"
+        "lita: show response json" => "Prints out Lita's response"
         })
 
       def print_reply(response)
-        response.reply_privately "#{response.user}"
+        response.reply_privately "#{response.user.to_s}"
       end
 
     end
