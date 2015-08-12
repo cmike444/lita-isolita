@@ -33,7 +33,7 @@ module Lita
         })
 
       def echo(response)
-        response.reply "#{response.matches}"
+        response.reply "#{response.matches.strip}"
       end
 
     end
