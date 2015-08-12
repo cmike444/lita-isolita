@@ -39,7 +39,7 @@ module Lita
         })
 
       def print_response(response)
-        response.reply_privately "#{response.inspect}"
+        response.reply_privately "#{response.message.inspect}\n#{response.user.inspect}"
       end
 
     end
