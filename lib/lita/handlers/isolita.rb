@@ -36,11 +36,11 @@ module Lita
         response.reply ">>>#{response.matches[0][0]}"
       end
 
-      route(/^echo\s+(.+)/, :echo, command: true, help: {
+      route(/^echo channel\s+(.+)/, :get_channel, command: true, help: {
         "echo channel" => "Echoes back CHANNEL"
         })
 
-      def wake_up(request, response)
+      def get_channel(request, response)
         response.reply "#{request[:slack_channel]}"
       end
 
