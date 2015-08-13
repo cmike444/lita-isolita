@@ -36,8 +36,8 @@ module Lita
         response.reply ">>>#{response.matches[0][0]}"
       end
 
-      route(/^echo channel\s+(.+)/, :get_channel, command: true, help: {
-        "echo channel" => "Echoes back CHANNEL"
+      route(/^get channel\s+(.+)/, :get_channel, command: true, help: {
+        "get channel" => "Replies with CHANNEL"
         })
 
       def get_channel(request, response)
