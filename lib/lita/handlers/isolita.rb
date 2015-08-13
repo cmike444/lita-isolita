@@ -29,19 +29,19 @@ module Lita
 
 
       route(/^echo\s+(.+)/, :echo, command: true, help: {
-        "lita: echo TEXT" => "Echoes back TEXT"
+        "echo TEXT" => "Echoes back TEXT"
         })
 
       def echo(response)
         response.reply ">>>#{response.matches[0][0]}"
       end
 
-      http.get "/wake_up", :wake_up, command: true, help: {
-        "lita: wake up" => "Wakes up Lita. Alternative: `lita get up`"
-      }
+      route(/^echo\s+(.+)/, :echo, command: true, help: {
+        "echo channel" => "Echoes back CHANNEL"
+        })
 
       def wake_up(request, response)
-        response.body << "I'm getting up!"
+        response.reply "#{request[:slack_channel]}"
       end
 
     end
