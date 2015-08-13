@@ -41,7 +41,7 @@ module Lita
         })
 
       def get_channel(request, response)
-        response.reply "#{request[:slack_channel]}"
+        response.reply "#{request.slack_channel}"
       end
 
     end
