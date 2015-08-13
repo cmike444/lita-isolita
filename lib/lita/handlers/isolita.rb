@@ -9,9 +9,9 @@ module Lita
         })
 
       def mind_your_manners(response)
-        username = response.user.metadata['name'].nil? ?
+        username = response.user.metadata['mention_name'].nil? ?
                          "#{response.user.name}" :
-                        "#{response.user.metadata['name']}"
+                        "#{response.user.metadata['mention_name']}"
 
         mind_manners = [
           "Mind your manners #{username}..",
@@ -33,7 +33,15 @@ module Lita
         })
 
       def echo(response)
-        response.reply response.matches[0][0]
+        response.reply ">>>#{response.matches[0][0]}"
+      end
+
+      http.get "/wake_up", :wake_up, command: true, help: {
+        "lita: wake up" => "Wakes up Lita. Alternative: `lita get up`"
+      }
+
+      def wake_up(request, response)
+        response.body << "I'm getting up!"
       end
 
     end
