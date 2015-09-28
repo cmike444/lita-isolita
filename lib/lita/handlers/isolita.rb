@@ -26,6 +26,13 @@ module Lita
         response.reply mind_manners.sample
       end
 
+      route(/^response\s+(.+)/, :data_response, command: true, help: {
+        "response" => "Echoes back response data"
+        })
+
+      def data_response(response)
+        response.reply ">>>#{response.inspect}"
+      end
 
 
       route(/^echo\s+(.+)/, :echo, command: true, help: {
@@ -42,6 +49,18 @@ module Lita
 
       def get_channel(request, response)
         response.reply "#{request.slack_channel}"
+      end
+
+      route(/^take notes\s+(.+)/, :start_live_session, command: true, help: {
+        "take notes" => "Starts recording conversation inside channel"
+        })
+
+      def start_live_session(request, response)
+        username = response.user.metadata['mention_name'].nil? ?
+                         "#{response.user.name}" :
+                        "#{response.user.metadata['mention_name']}"
+
+        response.reply "Alright, #{username}. It's #{Time.now.strftime('%l:%M')} and I'm ready to take notes."
       end
 
     end
